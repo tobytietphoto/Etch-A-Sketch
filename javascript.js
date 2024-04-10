@@ -73,7 +73,8 @@ eraseBtn.addEventListener("click", eraseBox);
 function shadeBox() {
     gridBoxes.forEach(gridBox => {
         gridBox.addEventListener("mouseover", (event) => {
-            event.target.style.backgroundColor = "gray";
+            event.target.style.backgroundColor = "grey";
+            event.target.style.opacity = .10;
         });
     });
 }
@@ -82,7 +83,7 @@ const shadeBtn = document.querySelector(".shadeBtn");
 
 shadeBtn.addEventListener("click", shadeBox);
 
-function reset() {
+function reset(gridBoxes) {
     const resetContainer = document.createElement('div');
     resetContainer.classList.add('resetContainer');
     const resetBtn = document.createElement('button');
@@ -97,12 +98,12 @@ function reset() {
     resetContainer.style.justifyContent = 'center';
     resetContainer.style.alignItems = 'center';
 
-     gridBoxes.forEach(gridBox => {
-        gridBox.addEventListener("click", (event) => {
-            event.target.style.backgroundColor = "white";
+    resetBtn.addEventListener("click", () => { 
+        gridBoxes.forEach(gridBox => {
+            gridBox.style.backgroundColor = "white";
         });
     });
 
 }
 
-reset();
+reset(gridBoxes);
